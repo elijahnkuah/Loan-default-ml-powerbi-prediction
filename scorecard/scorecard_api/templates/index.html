@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>CREDIT SCORECARD</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+<div class="container mt-3">
+  <h2>CREDIT SCORECARD</h2>
+  <form action="{{ url_for('predict')}}" method="POST">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="mb-2 mt-2">
+                <label for="loan_amount">Loan Amount:</label>
+                <input type="text" class="form-control" id="loan_amount" placeholder="Enter Loan Amount Eg:[20000]" name="loan_amount">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div  class="mb-2 mt-2">
+                <label for="founded_amount">Founded Amount:</label>
+                <input type="text" class="form-control" id="founded_amount" placeholder="Enter Enter founded amount Eg:[20000]" name="founded_amount">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div  class="mb-2 mt-2">
+                <label for="term">Term (lenght for loan):</label>
+                <select class="form-select" id="term" name="term">
+                    <option>-Select Term-</option>
+                    <option value="36">36 months</option>
+                    <option value="60">60 months</option>
+                  </select>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div  class="mb-2 mt-2">
+                <label for="interest_rate">Interest Rate:</label>
+                <input type="text" class="form-control" id="interest_rate" placeholder="Enter Interest Rate Btn:[0.01 - 100]" name="interest_rate">
+              </div>
+        </div>
+        <div class="col-sm-4">
+            <div  class="mb-2 mt-2">
+                <label for="employment_length">Employment Length:</label>
+                <select class="form-select" id="employment_length" name="employment_length">
+                  <option>none</option>
+                  <option value="0">None</option>
+                  <option value="1">< 1 year</option>
+                  <option value="2">1 year</option>
+                  <option value="3">2 year</option>
+                  <option value="4">3 year</option>
+                  <option value="5">4 year</option>
+                  <option value="6">6 year</option>
+                  <option value="7">7 year</option>
+                  <option value="8">8 year</option>
+                  <option value="9">9 year</option>
+                  <option value="10">10 year</option>
+                  <option value="11">10+ years</option>
+                  </select>
+              </div>
+        </div>
+        <div class="col-sm-4">
+            <div  class="mb-2 mt-2">
+                <label for="home_ownership">Home Ownership:</label>
+                <select class="form-select" id="home_ownership" name="home_ownership">
+                    <option value="1">OWN</option>
+                    <option value="2">MORTGAGE</option>
+                    <option value="3">RENT</option>
+                    <option value="4">OTHER</option>
+                    <option value="5">NONE</option>
+                    <option value="6">ANY</option>
+                </select>
+              </div>
+        </div>
+        <div class="col-sm-4">
+            <div  class="mb-2 mt-2">
+                <label for="annual_income">Annual Income:</label>
+                <input type="text" class="form-control" id="annual_income" placeholder="Enter Annual Income Eg.10000" name="annual_income">
+              </div>
+        </div>
+        <div class="col-sm-4">
+            <div  class="mb-2 mt-2">
+                <label for="purpose_of_loan">Purpose of Loan:</label>
+                <select class="form-select" id="purpose_of_loan" name="purpose_of_loan">
+                    <option value="1">Small Business</option>
+                    <option value="2">Debt Consolidation</option>
+                    <option value="3">Home Improvement</option>
+                    <option value="4">Credit Card</option>
+                    <option value="5">Major Purchase</option>
+                </select>
+              </div>
+        </div>
+        <div class="col-sm-4">
+            <div  class="mb-2 mt-2">
+                <label for="dti">DTI:</label>
+                <input type="text" class="form-control" id="dti" placeholder="Enter DTI Btn[0.1 - 100]" name="dti">
+              </div>
+        </div>
+        <div class="col-sm-4">
+            <div  class="mb-2 mt-2">
+                <label for="revol_bal">Total Credit Revolving Balance:</label>
+                <input type="text" class="form-control" id="revol_bal" placeholder="Total Credit Revolving Balance Eg:[205000]" name="revol_bal">
+              </div>
+        </div>
+        <div class="col-sm-4">
+            <div  class="mb-2 mt-2">
+                <label for="revol_util">Revolving Line Utilization Rate:</label>
+                <input type="text" class="form-control" id="revol_util" placeholder="Enter Revolving Line Utilization Rate Btn [0 - 200]" name="revol_util">
+              </div>
+        </div>
+        <div class="col-sm-4">
+            <div  class="mb-2 mt-2">
+                <label for="total_acc">The total number of credit lines:</label>
+                <input type="text" class="form-control" id="total_acc" placeholder="The total number of credit lines  Eg: 16 " name="total_acc">
+              </div>
+        </div>
+        <div class="col-sm-4">
+            <div  class="mb-2 mt-2">
+                <label for="application_type">Application Type:</label>
+                <select class="form-select" id="application_type" name="application_type">
+                    <option value="1">INDIVIDUAL</option>
+                    <option value="2">JOINT</option>
+                </select>
+              </div>
+        </div>
+        <div class="col-sm-4">
+            <div  class="mb-2 mt-2">
+                <label for="tot_cur_bal">Total Current Balance:</label>
+                <input type="text" class="form-control" id="tot_cur_bal" placeholder="Enter Total Current Balance Eg: 20000" name="tot_cur_bal">
+              </div>
+        </div>
+        <div class="col-sm-4">
+            <div  class="mb-2 mt-2">
+                <label for="total_rev_hi_lim">total_rev_hi_lim:</label>
+                <input type="text" class="form-control" id="total_rev_hi_lim" placeholder="Enter total_rev_hi_lim" name="total_rev_hi_lim">
+              </div>
+        </div>
+        <div class="col-sm-4">
+            <div  class="mb-2 mt-2">
+                <label for="Monthly_supposed_payment">Monthly Supposed Payment:</label>
+                <input type="text" class="form-control" id="Monthly_supposed_payment" placeholder="Enter Monthly supposed payment" name="Monthly_supposed_payment">
+              </div>
+        </div>
+        <div class="col-sm-4">
+            <div  class="mb-2 mt-2">
+                <label for="Interest_amnt">Interest Amount:</label>
+                <input type="text" class="form-control" id="Interest_amnt" placeholder="Enter Interest Amount " name="Interest_amnt">
+              </div>
+        </div>
+        <div class="col-sm-4">
+            <div  class="mb-2 mt-2">
+                <label for="Total_refund">Total Refund:</label>
+                <input type="text" class="form-control" id="Total_refund" placeholder="Enter Total Refund" name="Total_refund">
+              </div>
+        </div>
+        <div class="col-sm-4">
+            <div  class="mb-2 mt-2">
+                <label for="Monthly_income">Monthly Income:</label>
+                <input type="text" class="form-control" id="Monthly_income" placeholder="Enter Monthly Income" name="Monthly_income">
+              </div>
+        </div>
+    </div>
+    <input type="submit" value="Predict">
+  </form>
+  <br>
+  <br>
+  {{ prediction_text }}
+
+</div>
+</body>
+</html>

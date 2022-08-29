@@ -1,0 +1,104 @@
+<html>
+<body>
+	<h1>CREDIT SCORECARD</h1>
+
+<div>
+<form action="{{ url_for('predict')}}" method="POST">
+	<label for="loan_amnt">Loan Amount</label>
+	<input type="text" id="loan_amnt" name="loan_amnt">Eg:[20000]
+	<br>
+	<label for="funded_amnt">Funded Amount</label>
+	<input type="text" id="funded_amnt" name="funded_amnt">Eg:[20000]
+	<br>
+	<label for="term">Term(lenght for loan)</label>
+	<select id="term" name="term">
+	<option value="36">36 months</option>
+	<option value="60">60 months</option>
+	</select>
+	<br>
+	<label for="int_rate">Interest Rate</label>
+	<input type="text" id="int_rate" name="int_rate">Btn:[0.01 - 100]
+	<br>
+	<label for="emp_length">Employment Length</label>
+	<select id="emp_length" name="emp_length">
+	<option value="0">None</option>
+	<option value="1">< 1 year</option>
+	<option value="2">1 year</option>
+	<option value="3">2 year</option>
+	<option value="4">3 year</option>
+	<option value="5">4 year</option>
+	<option value="6">6 year</option>
+	<option value="7">7 year</option>
+	<option value="8">8 year</option>
+	<option value="9">9 year</option>
+	<option value="10">10 year</option>
+	<option value="11">10+ years</option>
+	</select>
+	<br>
+	<label for="home_ownership">Home Ownership</label>
+	<select id="home_ownership" name="home_ownership">
+	<option value="1">OWN</option>
+	<option value="2">MORTGAGE</option>
+	<option value="3">RENT</option>
+	<option value="4">OTHER</option>
+	<option value="5">NONE</option>
+	<option value="6">ANY</option>
+	</select>
+	<br>
+	<label for="annual_inc">Annual Income</label>
+	<input type="text" id="annual_inc"  name="annual_inc">Eg.10000
+	<br>
+	<label for="purpose">Purpose of Loan</label>
+	<select id="purpose" name="purpose">
+	<option value="1">Small Business</option>
+	<option value="2">Debt Consolidation</option>
+	<option value="3">Home Improvement</option>
+	<option value="4">Credit Card</option>
+	<option value="5">Major Purchase</option>
+	</select>
+	<br>
+	<label for="dti">DTI</label>
+	<input type="text" id="dti" name="dti">Btn[0.1 - 100]
+	<br>
+	<label for="revol_bal">Total Credit Revolving Balance</label>
+	<input type="text" id="revol_bal" name="revol_bal">Eg:[205000]
+	<br>
+	<label for="revol_util">Revolving Line Utilization Rate</label>
+	<input type="text" id="revol_util" name="revol_util">Btn [0 - 200]
+	<br>
+	<label for="total_acc">The total number of credit lines</label>
+	<input type="total_acc" id="total_acc" name="total_acc"> Eg: 16
+	<br>
+	<label for="application_type">Application Type</label>
+	<select id="application_type" name="application_type">
+	<option value="1">INDIVIDUAL</option>
+	<option value="2">JOINT</option>
+	</select>
+	<br>
+	<label for="tot_cur_bal">Total Current Balance</label>
+	<input type="text" id="tot_cur_bal" name="tot_cur_bal">Eg: 20000
+	<br>
+	<label for="total_rev_hi_lim">total_rev_hi_lim</label>
+	<input type="text" id="total_rev_hi_lim" name="total_rev_hi_lim"> Eg: 20000
+	<br>
+	<label for="Monthly_supposed_payment">Monthly_supposed_payment</label>
+	<input type="text" id="Monthly_supposed_payment" name="Monthly_supposed_payment">Eg: 20000
+	<br>
+	<label for="Total_refund">Total_refund</label>
+	<input type="text" id="Total_refund" name="Total_refund">Eg: 20000
+	<br>
+	<label for="Interest_amnt">Interest_amnt</label>
+	<input type="text" id="Interest_amnt" name="Interest_amnt">Eg: 20000
+	<br>
+	<label for="Monthly_income">Monthly_income</label>
+	<input type="text" id="Monthly_income" name="Monthly_income">Eg: 20000
+	<br>
+	<input type="submit" value="Predict">
+</form>
+<br>
+<br>
+{{ prediction_text }}
+
+</div>
+</body>
+</html>
